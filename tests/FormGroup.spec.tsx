@@ -4,9 +4,9 @@ import { mount, ReactWrapper } from "enzyme";
 import { ModelValidator, ValidatorPublicInterface } from "react-formawesome-core";
 
 import { ExampleModel } from "./helpers/ExampleModel";
-import { FormProps, Form } from "../src";
+import { FormProps, Form, FormGroup } from "../src";
 
-describe("<Form />", () => {
+describe("<FormGroup />", () => {
     let wrapper: ReactWrapper<FormProps>;
     let validator: ValidatorPublicInterface;
 
@@ -23,7 +23,11 @@ describe("<Form />", () => {
         }
 
         wrapper = mount(
-            <Form validator={validator} onSubmit={onSubmit} />
+            <Form validator={validator} onSubmit={onSubmit}>
+                <FormGroup attribute="name" >
+                    <div />
+                </FormGroup>
+            </Form>
         );
     });
 
@@ -31,7 +35,15 @@ describe("<Form />", () => {
         wrapper.unmount();
     });
 
-    it("Should render form", () => {
-        expect(wrapper.getDOMNode().outerHTML).to.equal("<form></form>");
+    it("Should add className according to context state", () => {
+        /* tslint:disable */
+        expect(
+            wrapper.find(FormGroup).instance()["getClassName"]({ isFocused: true })
+        ).to.equal("is-focus");
+
+        expect(
+            wrapper.find(FormGroup).instance()["getClassName"]({ error: true })
+        ).to.equal("is-error");
+        /* tslint:enable */
     });
 });
