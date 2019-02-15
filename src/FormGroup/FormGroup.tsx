@@ -32,6 +32,6 @@ export class FormGroup extends React.Component<FormGroupProps> {
             this.props.className,
             context.error && this.props.errorClassName,
             context.isFocused && this.props.focusClassName
-        ].filter((className) => className).join(" ").trim();
+        ].filter((className) => className).join(" ").trim() || undefined;
     }
 }
