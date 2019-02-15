@@ -5,76 +5,87 @@ import { InputProps, InputPropTypes, InputDefaultPropTypes } from "./InputProps"
 import { element } from "prop-types";
 
 export class Input extends React.Component<InputProps> {
-	public static readonly propTypes = InputPropTypes;
-	public static readonly defaultPropTypes = InputDefaultPropTypes;
+    public static readonly propTypes = InputPropTypes;
+    public static readonly defaultProps = InputDefaultPropTypes;
 
-	protected unregister?: Context["unregisterElement"];
+    protected unregister?: Context["unregisterElement"];
 
-	public componentWillUnmount(): void {
-		this.unregister && this.unregister();
-	}
+    public componentWillUnmount(): void {
+        this.unregister && this.unregister();
+    }
 
-	public render(): React.ReactNode {
-		return (
-			<FormGroupContext.Consumer>
-				{this.renderChildren}
-			</FormGroupContext.Consumer>
-		);
-	}
+    public render(): React.ReactNode {
+        return (
+            <FormGroupContext.Consumer>
+                {this.renderChildren}
+            </FormGroupContext.Consumer>
+        );
+    }
 
-	protected renderChildren = (context: Context): React.ReactNode => {
-		const { onChange, onBlur, onFocus, value, className, ref: x, ...inputProps } = this.props;
+    protected renderChildren = (context: Context): React.ReactNode => {
+        const {
+            errorClassName,
+            focusClassName,
+            nativeRef,
+            className,
+            onChange,
+            onBlur,
+            onFocus,
+            value,
+            ref,
+            ...inputProps
+        } = this.props;
 
-		return (
-			<input
-				{...inputProps}
+        return (
+            <input
+                {...inputProps}
 
-				onChange={this.getHandleChange(context)}
-				onFocus={this.getHandleFocus(context)}
-				onBlur={this.getHandleBlur(context)}
+                onChange={this.getHandleChange(context)}
+                onFocus={this.getHandleFocus(context)}
+                onBlur={this.getHandleBlur(context)}
 
-				className={this.getClassName(context)}
-				ref={this.registerElement(context)}
-				value={context.value}
-			/>
-		);
-	};
+                className={this.getClassName(context)}
+                ref={this.registerElement(context)}
+                value={context.value}
+            />
+        );
+    };
 
-	protected registerElement = (context: Context) => (instance?: HTMLInputElement) => {
-		this.props.nativeRef && this.props.nativeRef(instance);
+    protected registerElement = (context: Context) => (instance?: HTMLInputElement) => {
+        this.props.nativeRef && this.props.nativeRef(instance);
 
-		if (!instance || this.unregister) {
-			return;
-		}
+        if (!instance || this.unregister) {
+            return;
+        }
 
-		context.registerElement(instance);
+        context.registerElement(instance);
 
-		this.unregister = context.unregisterElement;
-	}
+        this.unregister = context.unregisterElement;
+    }
 
-	protected getHandleChange = (context: Context) => (event: React.ChangeEvent<HTMLInputElement>): void => {
-		this.props.onChange && this.props.onChange(event);
+    protected getHandleChange = (context: Context) => (event: React.ChangeEvent<HTMLInputElement>): void => {
+        this.props.onChange && this.props.onChange(event);
 
-		context.onChange(event.currentTarget.value);
-	}
+        context.onChange(event.currentTarget.value);
+    }
 
-	protected getHandleBlur = (context: Context) => (event: React.FocusEvent<HTMLInputElement>): void => {
-		this.props.onBlur && this.props.onBlur(event);
+    protected getHandleBlur = (context: Context) => (event: React.FocusEvent<HTMLInputElement>): void => {
+        this.props.onBlur && this.props.onBlur(event);
 
-		context.onBlur();
-	}
+        context.onBlur();
+    }
 
-	protected getHandleFocus = (context: Context) => (event: React.FocusEvent<HTMLInputElement>): void => {
-		this.props.onFocus && this.props.onFocus(event);
+    protected getHandleFocus = (context: Context) => (event: React.FocusEvent<HTMLInputElement>): void => {
+        this.props.onFocus && this.props.onFocus(event);
 
-		context.onFocus();
-	}
+        context.onFocus();
+    }
 
-	protected getClassName = (context: Context): string => {
-		return [
-			this.props.className,
-			context.error && this.props.errorClassName,
-			context.isFocused && this.props.focusClassName
-		].filter((className) => className).join(" ").trim();
-	}
+    protected getClassName = (context: Context): string => {
+        return [
+            this.props.className,
+            context.error && this.props.errorClassName,
+            context.isFocused && this.props.focusClassName
+        ].filter((className) => className).join(" ").trim();
+    }
 }
