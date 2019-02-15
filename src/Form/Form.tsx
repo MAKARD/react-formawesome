@@ -7,10 +7,26 @@ export class Form extends React.Component<FormProps> {
     public static readonly propTypes = FormPropTypes;
 
     public render(): React.ReactNode {
-        const { onSubmit, errorParser, validator, action, ...formProps } = this.props;
+        const {
+            action,
+            onSubmit,
+            validator,
+            errorParser,
+            afterSubmit,
+            beforeSubmit,
+            handleUnparsedErrors,
+            ...formProps
+        } = this.props;
 
         return (
-            <FormProvider onSubmit={onSubmit} errorParser={errorParser} validator={validator}>
+            <FormProvider
+                onSubmit={onSubmit}
+                validator={validator}
+                errorParser={errorParser}
+                afterSubmit={afterSubmit}
+                beforeSubmit={beforeSubmit}
+                handleUnparsedErrors={handleUnparsedErrors}
+            >
                 <form {...formProps} >
                     {this.props.children}
                 </form>
