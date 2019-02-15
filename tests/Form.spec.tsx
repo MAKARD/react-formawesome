@@ -18,9 +18,8 @@ describe("<Form />", () => {
             surname: "-"
         });
 
-        const onSubmit = async () => {
-            throw new Error();
-        }
+        const onSubmit = async () => undefined;
+        onSubmit();
 
         wrapper = mount(
             <Form validator={validator} onSubmit={onSubmit} />
