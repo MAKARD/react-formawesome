@@ -86,6 +86,6 @@ export class Input extends React.Component<InputProps> {
             this.props.className,
             context.error && this.props.errorClassName,
             context.isFocused && this.props.focusClassName
-        ].filter((className) => className).join(" ").trim();
+        ].filter((className) => className).join(" ").trim() || undefined;
     }
 }
