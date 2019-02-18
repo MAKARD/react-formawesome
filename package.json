@@ -1,7 +1,7 @@
 {
   "name": "react-formawesome",
-  "version": "0.0.0",
-  "description": "-",
+  "version": "1.0.0-rc1",
+  "description": "React UI lib for validation forms",
   "main": "build/index.js",
   "typings": "build/src/index.d.ts",
   "scripts": {
@@ -15,10 +15,16 @@
     "url": "https://github.com/MAKARD/react-formawesome"
   },
   "keywords": [
-    "-"
+    "ui",
+    "react",
+    "validation",
+    "class-validator",
+    "validate.js",
+    "form",
+    "react-formawesome-core"
   ],
   "author": "Makarenko Dmitry",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/MAKARD/react-formawesome/issues"
   },
