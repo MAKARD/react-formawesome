@@ -37,9 +37,14 @@ describe("<FormGroup />", () => {
     it("Should add className according to context state", () => {
         /* tslint:disable */
         expect(
+            wrapper.find(FormGroup).instance()["getClassName"]({ })
+        ).to.be.undefined;
+        expect(
             wrapper.find(FormGroup).instance()["getClassName"]({ isFocused: true })
         ).to.equal("is-focus");
-
+        expect(
+            wrapper.find(FormGroup).instance()["getClassName"]({ value: "test" })
+        ).to.equal("have-value");
         expect(
             wrapper.find(FormGroup).instance()["getClassName"]({ error: true })
         ).to.equal("is-error");

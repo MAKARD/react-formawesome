@@ -13,7 +13,7 @@ export const TextAreaPropTypes: Partial<PropTypes.ValidationMap<TextAreaProps>> 
     errorClassName: PropTypes.string,
     focusClassName: PropTypes.string,
     valueClassName: PropTypes.string,
- 
+
     nativeRef: PropTypes.func
 };
 
