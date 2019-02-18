@@ -1,11 +1,11 @@
 import * as React from "react";
 import { FormGroupContext, FormGroupContextInterface as Context } from "react-formawesome-core";
 
-import { TextAreaProps, TextAreaPropTypes, TextAreaDefaultPropTypes } from "./TextAreaProps";
+import { TextAreaProps, TextAreaPropTypes, TextAreaDefaultProps } from "./TextAreaProps";
 
 export class TextArea extends React.Component<TextAreaProps> {
     public static readonly propTypes = TextAreaPropTypes;
-    public static readonly defaultProps = TextAreaDefaultPropTypes;
+    public static readonly defaultProps = TextAreaDefaultProps;
 
     protected unregister?: Context["unregisterElement"];
 
@@ -25,11 +25,12 @@ export class TextArea extends React.Component<TextAreaProps> {
         const {
             errorClassName,
             focusClassName,
+            valueClassName,
             nativeRef,
             className,
             onChange,
-            onBlur,
             onFocus,
+            onBlur,
             value,
             ref,
             ...inputProps
@@ -83,6 +84,7 @@ export class TextArea extends React.Component<TextAreaProps> {
     protected getClassName = (context: Context): string => {
         return [
             this.props.className,
+            context.value && this.props.valueClassName,
             context.error && this.props.errorClassName,
             context.isFocused && this.props.focusClassName
         ].filter((className) => className).join(" ").trim() || undefined;
