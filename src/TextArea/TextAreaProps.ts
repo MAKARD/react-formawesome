@@ -4,6 +4,7 @@ import * as PropTypes from "prop-types";
 export interface TextAreaProps extends React.HTMLProps<HTMLTextAreaElement> {
     errorClassName?: string;
     focusClassName?: string;
+    valueClassName?: string;
 
     nativeRef?: (instance?: HTMLTextAreaElement) => void;
 }
@@ -11,11 +12,13 @@ export interface TextAreaProps extends React.HTMLProps<HTMLTextAreaElement> {
 export const TextAreaPropTypes: Partial<PropTypes.ValidationMap<TextAreaProps>> = {
     errorClassName: PropTypes.string,
     focusClassName: PropTypes.string,
+    valueClassName: PropTypes.string,
 
     nativeRef: PropTypes.func
 };
 
-export const TextAreaDefaultPropTypes: Partial<TextAreaProps> = {
+export const TextAreaDefaultProps: Partial<TextAreaProps> = {
     errorClassName: "has-error",
-    focusClassName: "has-focus"
+    focusClassName: "has-focus",
+    valueClassName: "has-value"
 };

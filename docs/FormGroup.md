@@ -15,6 +15,7 @@ Also `FormGroup` represents [FormGroupProvider](https://github.com/MAKARD/react-
 Own props:
  - `errorClassName` - class that applies when model attribute is invalid. By default - `is-error`.
  - `focusClassName` - class that applies when nested user-interactive element have focus. By default - `is-focus`.
+ - `valueClassName` - class that applies when model attribute have value. By default - `have-value`.
 
 ## Example
 

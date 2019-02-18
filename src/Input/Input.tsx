@@ -1,11 +1,11 @@
 import * as React from "react";
 import { FormGroupContext, FormGroupContextInterface as Context } from "react-formawesome-core";
 
-import { InputProps, InputPropTypes, InputDefaultPropTypes } from "./InputProps";
+import { InputProps, InputPropTypes, InputDefaultProps } from "./InputProps";
 
 export class Input extends React.Component<InputProps> {
     public static readonly propTypes = InputPropTypes;
-    public static readonly defaultProps = InputDefaultPropTypes;
+    public static readonly defaultProps = InputDefaultProps;
 
     protected unregister?: Context["unregisterElement"];
 
@@ -25,11 +25,12 @@ export class Input extends React.Component<InputProps> {
         const {
             errorClassName,
             focusClassName,
+            valueClassName,
             nativeRef,
             className,
             onChange,
-            onBlur,
             onFocus,
+            onBlur,
             value,
             ref,
             ...inputProps
@@ -83,6 +84,7 @@ export class Input extends React.Component<InputProps> {
     protected getClassName = (context: Context): string => {
         return [
             this.props.className,
+            context.value && this.props.valueClassName,
             context.error && this.props.errorClassName,
             context.isFocused && this.props.focusClassName
         ].filter((className) => className).join(" ").trim() || undefined;

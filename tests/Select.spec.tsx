@@ -4,11 +4,15 @@ import { mount, ReactWrapper } from "enzyme";
 import { ModelValidator, ValidatorPublicInterface } from "react-formawesome-core";
 
 import { ExampleModel } from "./helpers/ExampleModel";
-import { FormProps, Form, FormGroup, Input } from "../src";
+import { FormProps, Form, FormGroup, Select } from "../src";
 
-describe("<Input />", () => {
+describe("<Select />", () => {
     let wrapper: ReactWrapper<FormProps>;
     let validator: ValidatorPublicInterface;
+    const options = [{
+        label: "test",
+        value: "test"
+    }];
 
     beforeEach(() => {
         validator = new ModelValidator(ExampleModel, {
@@ -24,7 +28,7 @@ describe("<Input />", () => {
         wrapper = mount(
             <Form validator={validator} onSubmit={onSubmit}>
                 <FormGroup attribute="name" >
-                    <Input />
+                    <Select options={options} />
                 </FormGroup>
             </Form>
         );
@@ -35,7 +39,7 @@ describe("<Input />", () => {
     });
 
     it("Should add className according to context state", () => {
-        const input = wrapper.find(Input);
+        const input = wrapper.find(Select);
         /* tslint:disable */
         expect(input.instance()["getClassName"]({ })).to.be.undefined;
         expect(input.instance()["getClassName"]({ isFocused: true })).to.equal("has-focus");
@@ -57,16 +61,17 @@ describe("<Input />", () => {
         wrapper.setProps({
             children: (
                 <FormGroup attribute="name" >
-                    <Input
+                    <Select
                         onChange={handlers.onChange}
                         onFocus={handlers.onFocus}
                         onBlur={handlers.onBlur}
+                        options={options}
                     />
                 </FormGroup>
             )
         });
 
-        const input = wrapper.find(Input);
+        const input = wrapper.find(Select);
 
         input.simulate("change");
         expect(handlers.changed).to.be.true;
@@ -85,11 +90,31 @@ describe("<Input />", () => {
         wrapper.setProps({
             children: (
                 <FormGroup attribute="name" >
-                    <Input nativeRef={nativeRef} />
+                    <Select nativeRef={nativeRef} options={options} />
                 </FormGroup>
             )
         });
 
         expect(element).to.be.not.undefined;
+    });
+
+    it("Should call children as function", () => {
+        let rendered = false;
+        const children = () => {
+            rendered = true;
+            return null;
+        }
+
+        wrapper.setProps({
+            children: (
+                <FormGroup attribute="name" >
+                    <Select options={options}>
+                        {children}
+                    </Select>
+                </FormGroup>
+            )
+        });
+
+        expect(rendered).to.be.true;
     });
 });

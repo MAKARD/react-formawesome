@@ -18,7 +18,15 @@ export class FormGroup extends React.Component<FormGroupProps> {
     }
 
     protected renderChildren = (context: FormGroupContextInterface): React.ReactNode => {
-        const { attribute, validateOn, errorClassName, focusClassName, className, ...divProps } = this.props;
+        const {
+            attribute,
+            className,
+            validateOn,
+            errorClassName,
+            valueClassName,
+            focusClassName,
+            ...divProps
+        } = this.props;
 
         return (
             <div className={this.getClassName(context)} {...divProps}>
@@ -30,8 +38,9 @@ export class FormGroup extends React.Component<FormGroupProps> {
     protected getClassName = (context: FormGroupContextInterface): string => {
         return [
             this.props.className,
+            context.value && this.props.valueClassName,
             context.error && this.props.errorClassName,
-            context.isFocused && this.props.focusClassName
+            context.isFocused && this.props.focusClassName,
         ].filter((className) => className).join(" ").trim() || undefined;
     }
 }

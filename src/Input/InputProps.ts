@@ -4,6 +4,7 @@ import * as PropTypes from "prop-types";
 export interface InputProps extends React.HTMLProps<HTMLInputElement> {
     errorClassName?: string;
     focusClassName?: string;
+    valueClassName?: string;
 
     nativeRef?: (instance?: HTMLInputElement) => void;
 }
@@ -11,11 +12,13 @@ export interface InputProps extends React.HTMLProps<HTMLInputElement> {
 export const InputPropTypes: Partial<PropTypes.ValidationMap<InputProps>> = {
     errorClassName: PropTypes.string,
     focusClassName: PropTypes.string,
+    valueClassName: PropTypes.string,
 
     nativeRef: PropTypes.func
 };
 
-export const InputDefaultPropTypes: Partial<InputProps> = {
+export const InputDefaultProps: Partial<InputProps> = {
     errorClassName: "has-error",
-    focusClassName: "has-focus"
+    focusClassName: "has-focus",
+    valueClassName: "has-value"
 };
