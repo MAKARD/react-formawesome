@@ -1,11 +1,11 @@
 import * as React from "react";
 import { FormGroupContext, FormGroupContextInterface as Context } from "react-formawesome-core";
 
-import { InputProps, InputPropTypes, InputDefaultPropTypes } from "./InputProps";
+import { TextAreaProps, TextAreaPropTypes, TextAreaDefaultPropTypes } from "./TextAreaProps";
 
-export class Input extends React.Component<InputProps> {
-    public static readonly propTypes = InputPropTypes;
-    public static readonly defaultProps = InputDefaultPropTypes;
+export class TextArea extends React.Component<TextAreaProps> {
+    public static readonly propTypes = TextAreaPropTypes;
+    public static readonly defaultProps = TextAreaDefaultPropTypes;
 
     protected unregister?: Context["unregisterElement"];
 
@@ -36,7 +36,7 @@ export class Input extends React.Component<InputProps> {
         } = this.props;
 
         return (
-            <input
+            <textarea
                 {...inputProps}
 
                 onChange={this.getHandleChange(context)}
@@ -50,7 +50,7 @@ export class Input extends React.Component<InputProps> {
         );
     };
 
-    protected registerElement = (context: Context) => (instance?: HTMLInputElement) => {
+    protected registerElement = (context: Context) => (instance?: HTMLTextAreaElement) => {
         this.props.nativeRef && this.props.nativeRef(instance);
 
         if (!instance || this.unregister) {
@@ -62,19 +62,19 @@ export class Input extends React.Component<InputProps> {
         this.unregister = context.unregisterElement;
     }
 
-    protected getHandleChange = (context: Context) => (event: React.ChangeEvent<HTMLInputElement>): void => {
+    protected getHandleChange = (context: Context) => (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
         this.props.onChange && this.props.onChange(event);
 
         context.onChange(event.currentTarget.value);
     }
 
-    protected getHandleBlur = (context: Context) => (event: React.FocusEvent<HTMLInputElement>): void => {
+    protected getHandleBlur = (context: Context) => (event: React.FocusEvent<HTMLTextAreaElement>): void => {
         this.props.onBlur && this.props.onBlur(event);
 
         context.onBlur();
     }
 
-    protected getHandleFocus = (context: Context) => (event: React.FocusEvent<HTMLInputElement>): void => {
+    protected getHandleFocus = (context: Context) => (event: React.FocusEvent<HTMLTextAreaElement>): void => {
         this.props.onFocus && this.props.onFocus(event);
 
         context.onFocus();
