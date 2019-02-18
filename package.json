@@ -1,24 +1,31 @@
 {
   "name": "react-formawesome",
-  "version": "0.0.0",
-  "description": "-",
+  "version": "1.0.0-rc1",
+  "description": "React UI lib for validation forms",
   "main": "build/index.js",
   "typings": "build/src/index.d.ts",
   "scripts": {
     "test": "./node_modules/.bin/cross-env NODE_ENV=test TS_NODE_PROJECT=tsconfig.json ./node_modules/.bin/nyc mocha -r jsdom-global/register -r ts-node/register -r source-map-support/register tests/bootstrap.ts tests/*.spec.tsx tests/*.spec.ts",
     "build": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --mode production --config=./webpack.config.js",
     "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "lint": "./node_modules/.bin/tslint --project ."
+    "lint": "./node_modules/.bin/tslint --project .",
+    "prepublishOnly": "npm run stage && npm run test"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/MAKARD/react-formawesome"
   },
   "keywords": [
-    "-"
+    "ui",
+    "react",
+    "validation",
+    "class-validator",
+    "validate.js",
+    "form",
+    "react-formawesome-core"
   ],
   "author": "Makarenko Dmitry",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/MAKARD/react-formawesome/issues"
   },
