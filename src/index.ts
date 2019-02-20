@@ -5,4 +5,5 @@ export * from "./ErrorTip";
 export * from "./TextArea";
 export * from "./FormGroup";
 export * from "./SubmitButton";
+export * from "./CheckboxGroup";
 export * from "./UnparsedErrorContainer";
