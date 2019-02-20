@@ -32,6 +32,7 @@ describe("<Checkbox />", () => {
 
     afterEach(() => {
         wrapper.unmount();
+        validator.dropToDefaults();
     });
 
     it("Should add className according to context state", () => {
@@ -89,5 +90,30 @@ describe("<Checkbox />", () => {
 
         checkbox.simulate("change");
         expect(validator.modelValues.name).to.equal("disabled");
+    });
+
+    it("Should set correct values into model from several checkboxes", () => {
+        wrapper.setProps({
+            children: (
+                <FormGroup attribute="name" >
+                    <Checkbox values={["active1", "disabled1"]} />
+                    <Checkbox values={["active2", "disabled2"]} />
+                </FormGroup>
+            )
+        });
+
+        const checkboxes = wrapper.find(Checkbox);
+        
+        checkboxes.first().simulate("change");
+        expect(validator.modelValues.name).to.equal("active1");
+
+        checkboxes.first().simulate("change");
+        expect(validator.modelValues.name).to.equal("disabled1");
+
+        checkboxes.last().simulate("change");
+        expect(validator.modelValues.name).to.equal("active2");
+
+        checkboxes.last().simulate("change");
+        expect(validator.modelValues.name).to.equal("disabled2");
     });
 });

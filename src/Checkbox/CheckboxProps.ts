@@ -2,7 +2,7 @@ import * as React from "react";
 import * as PropTypes from "prop-types";
 
 export interface CheckboxProps extends React.HTMLProps<HTMLInputElement> {
-    values: [string, string];
+    values: [any, any];
 
     errorClassName?: string;
     activeClassName?: string;
@@ -11,7 +11,7 @@ export interface CheckboxProps extends React.HTMLProps<HTMLInputElement> {
 }
 
 export const CheckboxPropTypes: Partial<PropTypes.ValidationMap<CheckboxProps>> = {
-    values: PropTypes.arrayOf(PropTypes.string).isRequired as PropTypes.Requireable<[string, string]>,
+    values: PropTypes.arrayOf(PropTypes.any).isRequired as PropTypes.Requireable<[string, string]>,
 
     errorClassName: PropTypes.string,
     activeClassName: PropTypes.string,
