@@ -12,7 +12,7 @@ User-interactive component.
 
 Own props:
  - `errorClassName` - class that applies when model attribute is invalid. By default - `has-error`.
- - `focusClassName` - class that applies when nested user-interactive element have focus. By default - `has-focus`.
+ - `focusClassName` - class that applies when user-interactive element have focus. By default - `has-focus`.
  - `valueClassName` - class that applies when model attribute have value. By default - `has-value`.
  - `nativeRef` - callback for React `ref`. `Optional`
 

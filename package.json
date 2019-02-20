@@ -65,7 +65,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-formawesome-core": "^1.0.0-rc11",
+    "react-formawesome-core": "^1.0.0-rc13",
     "react-test-renderer": "^16.8.2",
     "request": "^2.88.0",
     "sinon": "^7.2.3",
@@ -83,7 +83,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "prop-types": "^15.6.2",
-    "react-formawesome-core": "^1.0.0-rc11"
+    "react-formawesome-core": "^1.0.0-rc13"
   },
   "nyc": {
     "extension": [
