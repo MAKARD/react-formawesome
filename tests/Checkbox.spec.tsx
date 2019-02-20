@@ -103,7 +103,7 @@ describe("<Checkbox />", () => {
         });
 
         const checkboxes = wrapper.find(Checkbox);
-        
+
         checkboxes.first().simulate("change");
         expect(validator.modelValues.name).to.equal("active1");
 
