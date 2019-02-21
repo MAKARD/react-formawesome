@@ -46,7 +46,7 @@ export class TextArea extends React.Component<TextAreaProps> {
 
                 className={this.getClassName(context)}
                 ref={this.registerElement(context)}
-                value={context.value}
+                value={context.value || ""}
             />
         );
     };
