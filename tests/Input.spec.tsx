@@ -12,7 +12,7 @@ describe("<Input />", () => {
 
     beforeEach(() => {
         validator = new ModelValidator(ExampleModel, {
-            name: "-",
+            name: undefined,
             phone: "-",
             address: "-",
             surname: "-"
@@ -37,7 +37,7 @@ describe("<Input />", () => {
     it("Should add className according to context state", () => {
         const input = wrapper.find(Input);
         /* tslint:disable */
-        expect(input.instance()["getClassName"]({ })).to.be.undefined;
+        expect(input.instance()["getClassName"]({})).to.be.undefined;
         expect(input.instance()["getClassName"]({ isFocused: true })).to.equal("has-focus");
         expect(input.instance()["getClassName"]({ value: "test" })).to.equal("has-value");
         expect(input.instance()["getClassName"]({ error: true })).to.equal("has-error");

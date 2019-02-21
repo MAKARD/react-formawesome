@@ -12,7 +12,7 @@ describe("<TextArea />", () => {
 
     beforeEach(() => {
         validator = new ModelValidator(ExampleModel, {
-            name: "-",
+            name: undefined,
             phone: "-",
             address: "-",
             surname: "-"
