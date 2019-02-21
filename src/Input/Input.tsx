@@ -46,7 +46,7 @@ export class Input extends React.Component<InputProps> {
 
                 className={this.getClassName(context)}
                 ref={this.registerElement(context)}
-                value={context.value}
+                value={context.value || ""}
             />
         );
     };
