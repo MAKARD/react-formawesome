@@ -1,6 +1,6 @@
 {
   "name": "react-formawesome",
-  "version": "1.0.0-rc2",
+  "version": "1.0.0-rc3",
   "description": "React UI lib for validation forms",
   "main": "build/index.js",
   "typings": "build/src/index.d.ts",
@@ -9,7 +9,7 @@
     "build": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --mode production --config=./webpack.config.js",
     "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "./node_modules/.bin/tslint --project .",
-    "prepublishOnly": "npm run lint && npm run test"
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
