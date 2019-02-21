@@ -14,5 +14,6 @@ export const SubmitButtonPropTypes: Partial<PropTypes.ValidationMap<SubmitButton
 };
 
 export const SubmitButtonDefaultProps: Partial<SubmitButtonProps> = {
-    loadingClassName: "is-loading"
+    loadingClassName: "is-loading",
+    type: "button"
 };
