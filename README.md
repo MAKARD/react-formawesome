@@ -19,6 +19,7 @@ npm install --save-dev react-formawesome
  - [Form](./docs/Form.md)
  - [FormGroup](./docs/FormGroup.md)
  - [Input](./docs/Input.md)
+ - [Checkbox](./docs/Checkbox.md)
  - [SubmitButton](./docs/SubmitButton.md)
  - [Select](./docs/Select.md)
  - [TextArea](./docs/TextArea.md)
