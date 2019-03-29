@@ -1,8 +1,10 @@
 import * as React from "react";
 import * as PropTypes from "prop-types";
 
-export interface CheckboxProps extends React.HTMLProps<HTMLInputElement> {
-    values: [any, any];
+type Thing = number | string | boolean;
+
+export interface CheckboxProps<A = Thing, D = Thing> extends React.HTMLProps<HTMLInputElement> {
+    values: [A, D];
 
     errorClassName?: string;
     activeClassName?: string;
