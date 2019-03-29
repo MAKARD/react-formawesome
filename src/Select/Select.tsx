@@ -3,7 +3,7 @@ import { FormGroupContext, FormGroupContextInterface as Context } from "react-fo
 
 import { SelectProps, SelectPropTypes, SelectDefaultProps } from "./SelectProps";
 
-export class Select extends React.Component<SelectProps> {
+export class Select<T extends number | string = string> extends React.Component<SelectProps<T>> {
     public static readonly propTypes = SelectPropTypes;
     public static readonly defaultProps = SelectDefaultProps;
 

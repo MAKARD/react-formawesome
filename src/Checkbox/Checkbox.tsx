@@ -3,7 +3,7 @@ import { FormGroupContext, FormGroupContextInterface as Context } from "react-fo
 
 import { CheckboxProps, CheckboxPropTypes, CheckboxDefaultProps } from "./CheckboxProps";
 
-export class Checkbox extends React.Component<CheckboxProps> {
+export class Checkbox<A = any, D = any> extends React.Component<CheckboxProps<A, D>> {
     public static readonly propTypes = CheckboxPropTypes;
     public static readonly defaultProps = CheckboxDefaultProps;
 

@@ -1,16 +1,16 @@
 import * as React from "react";
 import * as PropTypes from "prop-types";
 
-export interface SelectProps extends React.HTMLProps<HTMLSelectElement> {
+export interface SelectProps<T extends number | string = string> extends React.HTMLProps<HTMLSelectElement> {
     errorClassName?: string;
     focusClassName?: string;
     valueClassName?: string;
 
-    options: Array<{ value: string | number; label: string }>;
+    options: Array<{ value: T; label: string }>;
 
     nativeRef?: (instance?: HTMLSelectElement) => void;
 
-    children?: (items: Array<{ value: string | number; label: string }>, selected: string | number) => React.ReactNode;
+    children?: (items: Array<{ value: T; label: string }>, selected: T) => React.ReactNode;
 }
 
 export const SelectPropTypes: { [P in keyof SelectProps]: PropTypes.Validator<any> } = {
