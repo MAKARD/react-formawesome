@@ -1,4 +1,4 @@
-# React Formawesome (Under development)
+# React Formawesome
 
 [![Build Status](https://api.travis-ci.org/MAKARD/react-formawesome.svg?branch=master)](https://travis-ci.org/MAKARD/react-formawesome)
 [![Code coverage](https://codecov.io/gh/MAKARD/react-formawesome/branch/master/graphs/badge.svg)](https://codecov.io/gh/MAKARD/react-formawesome/branch/master)
@@ -10,8 +10,8 @@ React UI lib for [react-formawesome-core](https://github.com/MAKARD/react-formaw
 ## Via NPM
 
 ```bash
-npm install --save-dev react-formawesome-core
-npm install --save-dev react-formawesome
+npm install --save-dev react-formawesome-core@latest
+npm install --save-dev react-formawesome@latest
 ```
 
 # Content
