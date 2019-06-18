@@ -11,8 +11,7 @@
     "lint": "./node_modules/.bin/tslint --project .",
     "prepublishOnly": "npm run lint && npm run test && npm run build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "rm -rf ./docs && build-storybook -o ./docs",
-    "push-storybook": "storybook.sh"
+    "build-storybook": "rm -rf ./docs && build-storybook -o ./docs"
   },
   "repository": {
     "type": "git",
