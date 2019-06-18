@@ -16,13 +16,13 @@ npm install --save-dev react-formawesome@latest
 
 # Content
 
- - [Form](./docs/Form.md)
- - [FormGroup](./docs/FormGroup.md)
- - [Input](./docs/Input.md)
- - [Checkbox](./docs/Checkbox.md)
- - [SubmitButton](./docs/SubmitButton.md)
- - [Select](./docs/Select.md)
- - [TextArea](./docs/TextArea.md)
- - [ErrorTip](./docs/ErrorTip.md)
- - [UnparsedErrorContainer](./docs/UnparsedErrorContainer.md)
+ - [Form](./readme/Form.md)
+ - [FormGroup](./readme/FormGroup.md)
+ - [Input](./readme/Input.md)
+ - [Checkbox](./readme/Checkbox.md)
+ - [SubmitButton](./readme/SubmitButton.md)
+ - [Select](./readme/Select.md)
+ - [TextArea](./readme/TextArea.md)
+ - [ErrorTip](./readme/ErrorTip.md)
+ - [UnparsedErrorContainer](./readme/UnparsedErrorContainer.md)
  

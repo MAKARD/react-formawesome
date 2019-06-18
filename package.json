@@ -1,7 +1,7 @@
 {
   "name": "react-formawesome",
   "version": "1.0.1",
-  "description": "React UI lib for validation forms",
+  "description": "React UI lib for forms validation",
   "main": "build/index.js",
   "typings": "build/src/index.d.ts",
   "scripts": {
@@ -9,7 +9,9 @@
     "build": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --mode production --config=./webpack.config.js",
     "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "./node_modules/.bin/tslint --project .",
-    "prepublishOnly": "npm run lint && npm run test && npm run build"
+    "prepublishOnly": "npm run lint && npm run test && npm run build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "rm -rf ./docs && build-storybook -o ./docs"
   },
   "repository": {
     "type": "git",
@@ -40,6 +42,11 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@babel/runtime": "^7.1.2",
+    "@storybook/addon-actions": "^5.1.8",
+    "@storybook/addon-links": "^5.1.8",
+    "@storybook/addon-storysource": "^5.1.8",
+    "@storybook/addons": "^5.1.8",
+    "@storybook/react": "^5.1.8",
     "@types/chai": "^4.1.5",
     "@types/enzyme": "^2.8.12",
     "@types/mocha": "^2.2.41",
@@ -71,6 +78,7 @@
     "sinon": "^7.2.3",
     "source-map": "^0.7.3",
     "source-map-loader": "^0.2.4",
+    "storybook-addon-jsx": "^7.1.2",
     "ts-node": "^7.0.1",
     "tslint": "5.6.0",
     "tslint-react": "^3.2.0",
