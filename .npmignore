@@ -13,3 +13,4 @@ tests/
 .nyc_output/
 node_modules/
 .travis.yml
+build/stories/
