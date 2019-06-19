@@ -5,3 +5,5 @@ For more details, see:
 * [react-formawesome-core AbstractValidator](https://github.com/MAKARD/react-formawesome-core/blob/master/docs/Validators.md#abstractvalidator)
 * [react-formawesome-core SchemaValidator](https://github.com/MAKARD/react-formawesome-core/blob/master/docs/Validators.md#schemavalidator)
 * [react-formawesome-core error cases](https://github.com/MAKARD/react-formawesome-core/blob/master/docs/Validators.md#error-casesr)
+
+[All props description](https://github.com/MAKARD/react-formawesome-core/blob/master/docs/FormProvider.md#public-interface)
