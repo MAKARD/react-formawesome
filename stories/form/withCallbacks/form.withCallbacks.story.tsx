@@ -5,54 +5,31 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { ModelValidator } from "react-formawesome-core";
 
-import { Form, FormGroup, Input, ErrorTip, SubmitButton } from "../src";
-import { UserModel } from "./userModel";
+import { Form, FormGroup, Input, ErrorTip, SubmitButton } from "../../../src";
+import { UserModel } from "../../userModel";
 
 storiesOf("<Form>", module)
-    .add("with error parser", () => {
+    .add("Using callbacks", () => {
         const handleSubmit = (modelValues) => {
-            return new Promise((resolve, reject) => {
+            return new Promise((resolve) => {
                 setTimeout(() => {
-                    const error = {
-                        response: {
-                            data: {
-                                errors: [
-                                    {
-                                        field: "name",
-                                        message: `Name "${modelValues.name}" already exist`
-                                    }
-                                ]
-                            }
-                        }
-                    };
-
-                    reject(error);
-                    action("Error")(error);
+                    resolve();
+                    action("Data has been submitted")(modelValues);
                 }, 1000);
             });
         };
 
         const validator = new ModelValidator(UserModel);
 
-        const errorParser = (error) => {
-            if (Array.isArray(error.response.data.errors)) {
-                return error.response.data.errors.map(({ field, message }) => ({
-                    attribute: field,
-                    details: message
-                }));
-            }
-
-            return error;
-        };
-
         return (
             <React.Fragment>
-                <ReactMarkdown className="markdown" source={require("./form.withErrorParser.md").default} />
+                <ReactMarkdown className="markdown" source={require("./form.withCallbacks.md").default} />
                 <Form
                     validator={validator}
                     onSubmit={handleSubmit}
+                    beforeSubmit={action("Before submit")}
+                    afterSubmit={action("After submit")}
                     className="form"
-                    errorParser={errorParser}
                 >
                     <FormGroup attribute="name" className="form-group" validateOn="blur">
                         <label className="form-label">Name</label>

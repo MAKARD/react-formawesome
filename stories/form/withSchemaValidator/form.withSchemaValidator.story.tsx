@@ -3,33 +3,41 @@ import * as React from "react";
 import ReactMarkdown from "react-markdown";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import { ModelValidator } from "react-formawesome-core";
-import { IsDefined, MinLength } from "react-formawesome-core/class-validator";
+import { SchemaValidator } from "react-formawesome-core";
 
-import { Form, FormGroup, Input, ErrorTip, SubmitButton } from "../src";
+import { Form, FormGroup, Input, ErrorTip, SubmitButton } from "../../../src";
 
 storiesOf("<Form>", module)
-    .add("with model validator", () => {
-        class UserModel {
-            @IsDefined({
-                groups: ["name"]
-            })
-            @MinLength(4, {
-                groups: ["name"]
-            })
-            public name: string = undefined;
-
-            @IsDefined({
-                groups: ["name"]
-            })
-            @MinLength(4, {
-                groups: ["name"]
-            })
-            public surname: string = undefined;
+    .add("Using SchemaValidator", () => {
+        const UserSchema = {
+            name: "UserSchema",
+            properties: {
+                name: [
+                    {
+                        type: "minLength",
+                        constraints: [4],
+                        groups: ["name", "personal"]
+                    },
+                    {
+                        type: "isDefined",
+                        groups: ["name", "personal"]
+                    }
+                ],
+                surname: [
+                    {
+                        type: "minLength",
+                        constraints: [4],
+                        groups: ["surname", "personal"]
+                    },
+                    {
+                        type: "isDefined",
+                        groups: ["surname", "personal"]
+                    }
+                ]
+            }
         }
-
-        const validator = new ModelValidator(UserModel, {
-            name: "default name"
+        const validator = new SchemaValidator(UserSchema, {
+            surname: "default surname"
         });
 
         const handleSubmit = (modelValues) => {
@@ -43,7 +51,7 @@ storiesOf("<Form>", module)
 
         return (
             <React.Fragment>
-                <ReactMarkdown className="markdown" source={require("./form.withModelValidator.md").default} />
+                <ReactMarkdown className="markdown" source={require("./form.withSchemaValidator.md").default} />
                 <Form validator={validator} onSubmit={handleSubmit} className="form">
                     <FormGroup attribute="name" className="form-group" validateOn="blur">
                         <label className="form-label">Name</label>

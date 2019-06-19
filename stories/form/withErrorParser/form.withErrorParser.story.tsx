@@ -5,21 +5,27 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { ModelValidator } from "react-formawesome-core";
 
-import { Form, FormGroup, Input, ErrorTip, SubmitButton, UnparsedErrorContainer } from "../src";
-import { UserModel } from "./userModel";
+import { Form, FormGroup, Input, ErrorTip, SubmitButton } from "../../../src";
+import { UserModel } from "../../userModel";
 
 storiesOf("<Form>", module)
-    .add("with unparsed error container", () => {
+    .add("Using error parser", () => {
         const handleSubmit = (modelValues) => {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     const error = {
                         response: {
                             data: {
-                                message: "A server error has been occurred. Try again later"
+                                errors: [
+                                    {
+                                        field: "name",
+                                        message: `Name "${modelValues.name}" already exist`
+                                    }
+                                ]
                             }
                         }
                     };
+
                     reject(error);
                     action("Error")(error);
                 }, 1000);
@@ -27,11 +33,6 @@ storiesOf("<Form>", module)
         };
 
         const validator = new ModelValidator(UserModel);
-
-        const errorContainer = (error) => {
-            return (error.response && error.response.data && error.response.data.message)
-                || "An error hase been occurred";
-        };
 
         const errorParser = (error) => {
             if (Array.isArray(error.response.data.errors)) {
@@ -46,13 +47,12 @@ storiesOf("<Form>", module)
 
         return (
             <React.Fragment>
-                <ReactMarkdown className="markdown" source={require("./form.withUnparsedErrorContainer.md").default} />
+                <ReactMarkdown className="markdown" source={require("./form.withErrorParser.md").default} />
                 <Form
                     validator={validator}
                     onSubmit={handleSubmit}
-                    handleUnparsedErrors
-                    errorParser={errorParser}
                     className="form"
+                    errorParser={errorParser}
                 >
                     <FormGroup attribute="name" className="form-group" validateOn="blur">
                         <label className="form-label">Name</label>
@@ -64,9 +64,6 @@ storiesOf("<Form>", module)
                         <Input className="form-control" />
                         <ErrorTip className="form-error" />
                     </FormGroup>
-                    <UnparsedErrorContainer className="form-error-container">
-                        {errorContainer}
-                    </UnparsedErrorContainer>
                     <SubmitButton className="btn" loadingComponent={<span>Wait...</span>}>
                         <span>Submit</span>
                     </SubmitButton>
