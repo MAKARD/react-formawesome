@@ -11,7 +11,8 @@
     "lint": "./node_modules/.bin/tslint --project .",
     "prepublishOnly": "npm run lint && npm run test && npm run build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "rm -rf ./docs && build-storybook -o ./docs"
+    "build-storybook": "rm -rf ./docs && build-storybook -o ./docs",
+    "check-commit": "checkCommit.sh"
   },
   "repository": {
     "type": "git",
@@ -121,7 +122,8 @@
   },
   "pre-commit": [
     "lint",
-    "test"
+    "test",
+    "check-commit"
   ],
   "dependencies": {}
 }
