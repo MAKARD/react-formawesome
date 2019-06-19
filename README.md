@@ -26,3 +26,6 @@ npm install --save-dev react-formawesome@latest
  - [ErrorTip](./readme/ErrorTip.md)
  - [UnparsedErrorContainer](./readme/UnparsedErrorContainer.md)
  
+ # Important: 
+ # For proper work, you should have react and react-dom libraries with exact the same versions
+ 
