@@ -62,6 +62,18 @@ body {
 
     padding: 2em;
 
+    .form-group-wrap {
+        border-left: 1px solid rgba(0, 0, 0, 0.23);
+
+        padding-left: 1em;
+
+        .form-group-description {
+            color: rgba(0, 0, 0, 0.5);
+
+            font-size: 14px;
+        }
+    }
+
     .form-group {
         border: 1px solid rgba(0, 0, 0, 0.23);
         border-radius: 4px;
