@@ -23,7 +23,7 @@
     "react",
     "validation",
     "class-validator",
-    "validate.js",
+    "validate",
     "form",
     "react-formawesome-core"
   ],
@@ -32,7 +32,7 @@
   "bugs": {
     "url": "https://github.com/MAKARD/react-formawesome/issues"
   },
-  "homepage": "https://github.com/MAKARD/react-formawesome",
+  "homepage": "https://makard.github.io/react-formawesome",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",

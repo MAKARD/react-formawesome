@@ -44,8 +44,8 @@ storiesOf("User interactive elements", module)
                         <ErrorTip className="form-error" />
                     </FormGroup>
                     <FormGroup attribute="agree" className="form-group form-group-inline" validateOn="blur">
-                        <Checkbox values={["yes", "no"]} className="form-control checkbox" />
-                        <label className="form-label">I agree with any terms</label>
+                        <Checkbox id="checkbox" values={["yes", "no"]} className="form-control checkbox" />
+                        <label htmlFor="checkbox" className="form-label">I agree with any terms</label>
                     </FormGroup>
                     <SubmitButton className="btn" loadingComponent={<span>Wait...</span>}>
                         <span>Submit</span>
