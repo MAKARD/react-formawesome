@@ -15,7 +15,7 @@ node_modules/
 .travis.yml
 build/stories/
 stories/
-readme/
+readme/*
 docs/
 .storybook/
 webpack.config.js
