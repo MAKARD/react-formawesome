@@ -10,6 +10,47 @@ body {
     line-height: 1.43;
 }
 
+.checkbox {
+    position: relative;
+
+    appearance: none;
+
+    width: 18px;
+    height: 18px;
+
+    border: 2px solid rgba(0, 0, 0, 0.54);
+    border-radius: 3px;
+
+    cursor: pointer;
+
+    &:after {
+        content: "";
+
+        position: absolute;
+
+        top: 1px;
+        bottom: 1px;
+        left: 1px;
+        right: 1px;
+
+        border-radius: 2px;
+
+        opacity: 0;
+
+        background-color: #43a047;
+
+        transition: opacity .25s ease;
+    }
+
+    &:checked {
+        border-color: #43a047;
+
+        &:after {
+            opacity: 1;
+        }
+    }
+}
+
 .btn {
     color: white;
 
@@ -71,11 +112,26 @@ body {
             color: rgba(0, 0, 0, 0.5);
 
             font-size: 14px;
+
+            label {
+                cursor: pointer;
+
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+
+                    color: rgba(0, 0, 0, 0.8);
+                }
+            }
         }
     }
 
     .form-group {
-        border: 1px solid rgba(0, 0, 0, 0.23);
+        &:not(.form-group-inline) {
+            border: 1px solid rgba(0, 0, 0, 0.23);
+        }
+
         border-radius: 4px;
 
         position: relative;
@@ -86,6 +142,25 @@ body {
 
         &:hover {
             border-color: rgba(0, 0, 0, 0.5);
+        }
+
+        &.form-group-inline {
+            .form-label {
+                position: relative;
+                transform: none !important;
+
+                display: inline-block;
+
+                vertical-align: middle;
+
+                color: rgba(0, 0, 0, 0.8);
+            }
+
+            .form-control {
+                display: inline-block;
+
+                vertical-align: middle;
+            }
         }
 
         .form-label {
@@ -110,15 +185,19 @@ body {
             position: relative;
             z-index: 1;
 
-            background: transparent;
-            border: none;
             outline: none;
 
-            width: 100%;
+            &:not(.checkbox) {
+                background: transparent;
 
-            padding: 18px 14px;
+                border: none;
 
-            font-size: 16px;
+                width: 100%;
+
+                padding: 18px 14px;
+
+                font-size: 16px;
+            }
         }
 
         .form-error {
@@ -195,7 +274,7 @@ body {
         color: #333;
         background: #f8f8f8;
 
-        font-family: monospace,monospace;
+        font-family: monospace, monospace;
         font-size: 1em;
     }
 }

@@ -11,11 +11,11 @@ Component for notify user about errors that cannot be applied to model.
 `UnparsedErrorContainer` contains `<div />` . All props for `<div />` are valid for `UnparsedErrorContainer`.
 
 Own props:
- - `children` - should be a function that return valid component. `Required`
+ - `children` - should be a function that returns valid component. `Required`
 
-*If error not exist, `UnparsedErrorContainer` will not render `children`*
+*If error not exist, `UnparsedErrorContainer` wouldn't render `children`*
 
-*If `Form` prop `handleUnparsedErrors` is falsy, `UnparsedErrorContainer` will not render `children`*
+*If `Form` prop `handleUnparsedErrors` is falsy, `UnparsedErrorContainer` wouldn't render `children`*
 
 ## Example
 
