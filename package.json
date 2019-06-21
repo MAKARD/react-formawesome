@@ -1,6 +1,6 @@
 {
   "name": "react-formawesome",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React UI lib for forms validation",
   "main": "build/index.js",
   "typings": "build/src/index.d.ts",
