@@ -12,7 +12,7 @@ By default renders `<span />`. All props for `<span />` are valid for `ErrorTip`
 
 - `children` - Only function allowed. Error text is passing as argument.
 
-*If error not exist, `ErrorTip` will not render anything*
+*If error isn't exist, `ErrorTip` wouldn't render anything*
 
 ## Example
 
