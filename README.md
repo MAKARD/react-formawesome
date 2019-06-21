@@ -5,6 +5,8 @@
 
 React UI lib for [react-formawesome-core](https://github.com/MAKARD/react-formawesome-core).
 
+See [Storybook](https://makard.github.io/react-formawesome)
+
 # Installation
 
 ## Via NPM
