@@ -6,4 +6,4 @@
 * [**react-formawesome**](https://github.com/MAKARD/react-formawesome/blob/master/README.md)
 * [**class-validator**](https://github.com/typestack/class-validator/blob/master/README.md)
 
-* [**Expample of creating own user interactive element**](https://github.com/MAKARD/react-formawesome/blob/master/src/Input/Input.tsx)
+* [**Example of creating own user interactive element**](https://github.com/MAKARD/react-formawesome/blob/master/src/Input/Input.tsx)
